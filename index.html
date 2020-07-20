@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catch and Win</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <!-- Google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="style.css" class="rel">
+    
+</head>
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+        <div class="container setting">
+            
+               <button onclick="aboutAlert()"><span class="about">About</span><i class="material-icons">priority_high</i></button>
+                 
+            <button type="button" onclick="startGame()">Start Game</button>
+            <h3 id="place_red"></h3>
+            <br>
+            <h3 id="start_game"></h3>
+            
+            
+            
+        </div>
+    </div>
+     <div class="col-lg-9">  <div class="container gameBoard">
+      <div class="row">
+       
+        <!-- ***********Left Side of table (GREEN)*********** -->
+       <div class="col-5 left">
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-left" id="0-l" onclick="makeGess(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-left" id="1-l" onclick="makeGess(this.id)"></div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-left" id="2-l" onclick="makeGess(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-left" id="3-l" onclick="makeGess(this.id)"></div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-left" id="4-l" onclick="makeGess(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-left" id="5-l" onclick="makeGess(this.id)"></div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-left" id="6-l" onclick="makeGess(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-left" id="7-l" onclick="makeGess(this.id)"></div>
+             </div>
+         </div>
+           
+       </div>
+       
+       <div class="col-2">
+           <div class="border"></div>
+       </div>
+       
+       <!-- ***********Right Side of table (BLUE)*********** -->
+       <div class="col-5 right">
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-right" id="0-r" onclick="makeMove(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-right" id="1-r" onclick="makeMove(this.id)"></div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-right" id="2-r" onclick="makeMove(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-right" id="3-r" onclick="makeMove(this.id)"></div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-right" id="4-r" onclick="makeMove(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-right" id="5-r" onclick="makeMove(this.id)"></div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-6">
+                 <div class="pieces-right" id="6-r" onclick="makeMove(this.id)"></div>
+             </div>
+             <div class="col-6">
+                 <div class="pieces-right" id="7-r" onclick="makeMove(this.id)"></div>
+             </div>
+         </div>
+           
+       </div>
+    </div>
+   </div></div>
+ 
+   </div>
+   </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>
