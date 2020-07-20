@@ -74,3 +74,27 @@ button:hover{
     background: #cccccc;
 }
 
+@media (max-width: 767px) {
+
+    div.pieces-left{
+        height: 40px;
+      width: 40px;
+      background-color: #5dd55d;
+        border: 4px solid #1f7a1f;
+    }
+    
+    div.pieces-left:hover{
+        background-color:#aeeaae;
+        border: 8px solid #5dd55d;
+    }
+    div.pieces-right{
+        height: 40px;
+      width: 40px;
+      background-color: #3385ff;
+        border: 4px solid #0047b3;
+    }
+    div.pieces-right:hover{
+        background-color:#99c2ff;
+        border: 4px solid #3385ff;
+    }
+}
