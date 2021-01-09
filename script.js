@@ -2,12 +2,24 @@ var blueTeam = [0,0,0,0,0,0,0,0];
 var greenTeam = [0,0,0,0,0,0,0,0];
 var computerGess = [0,0,0,0,0,0,0,0];
 var flag_start_game = 0;
+var flag_game_ended = 0;
 var flag_computer_first_red = 0;
 
 
 function startGame(){
-    var place_red = document.getElementById("place_red");
-    place_red.textContent = 'Please select one pieces from the blue team.';
+    
+    //location.reload();
+    for(i=0;i<8;i++){
+        a = document.getElementById(i+"-r");
+        a.style.visibility='visible';
+        a.style.background = '#3385ff';
+        b = document.getElementById(i+"-l").style.visibility='visible';
+        blueTeam[i] = 0;
+        greenTeam[i] = 0;
+        computerGess[i] = 0;
+    }
+    flag_computer_first_red = 0;
+    show_message(0);
     flag_start_game = 1;
 }
 
@@ -51,7 +63,6 @@ function makeGess(clicked_id){
             else{
                  alert('Wrong.');
                  ComputerMakeMove();
-                 startGame();
             }
         }
     }
@@ -64,9 +75,25 @@ function makeGess(clicked_id){
 
 // *************End Of ClickeAble Methods**************
 
+function show_message(temp){
+    var place_red = document.getElementById("place_red");
+
+    if(temp == 0){
+        place_red.textContent = 'Please select one pieces from the blue team.';
+    }
+    else if(temp == 1){
+        place_red.textContent = 'Try to gess which circle the computer choose to be the red one.';
+    }
+    else if(temp == 2){
+        place_red.textContent = '';
+
+    }
+}
+
 function makeRed(id){
     var a = document.getElementById(id).style.background = "red";
     blueTeam[id[0]] = 1; // take the index from the id
+    show_message(1);
 }
 
 function makeRedComputer(){
@@ -77,8 +104,7 @@ function makeRedComputer(){
         }
         greenTeam[r] = 1;
         console.log("computer red : "+r);
-        var place_red = document.getElementById("place_red");
-        place_red.textContent = 'Try to gess which circle the computer choose to be the red one.';
+        show_message(1);
     }
     else{
         alert("You Win!!!");
@@ -86,7 +112,6 @@ function makeRedComputer(){
     }
     
 }
-
 
 function ComputerMakeMove(){
     var r = Math.floor(Math.random() * 8);
@@ -107,6 +132,8 @@ function ComputerMakeMove(){
             alert("Computer Win!!!");
             finishedGame();
         }
+        show_message(0);
+
     }
     else{
         alert("Computer gess wrong. Your turn again.");
@@ -155,11 +182,20 @@ function checkNoOnesGreenTeam(){
 function finishedGame(){
     var a;
     var b;
+    flag_game_ended = 1;
+    flag_computer_first_red = 0;
     for(i=0;i<8;i++){
-        a = document.getElementById(i+"-r").style.visibility='hidden';
+        a = document.getElementById(i+"-r");
+        a.style.visibility='hidden';
+        a.style.background = '#3385ff';
         b = document.getElementById(i+"-l").style.visibility='hidden';
+        blueTeam[i] = 0;
+        greenTeam[i] = 0;
+        computerGess[i] = 0;
     }
+    show_message(2);
     alert("click 'Start Game' to start again");
+    
 }
 
 function aboutAlert(){
